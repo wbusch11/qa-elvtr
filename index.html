@@ -3,32 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Testing Demo Site</title>
+    <title>Game Testing Demo Site</title>
     <style>
-        /* Add your CSS here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #444;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #fdd835;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: #fdd835;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .btn {
             padding: 10px;
-            color: white;
-            background-color: blue;
+            color: #222;
+            background-color: #fdd835;
             border: none;
             transition: background-color 0.5s;
         }
 
         .btn:hover {
-            background-color: lightblue;
+            background-color: #c6a700;
         }
         
-        /* Styles for uppercase input */
         .upperCase {
             text-transform: uppercase;
+        }
+
+        main {
+            padding: 0 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type=button], input[type=submit] {
+            margin-top: 10px;
+        }
+
+        #errorMessage {
+            color: red;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welocme to the Software Testing Demo Site</h1> <!-- Intentional misspelling -->
+        <h1>Game Testing Demo Site</h1>
         <nav>
-            <a href="nonexistent.html">Broken Link</a> <!-- Broken link -->
+            <a href="nonexistent.html">Broken Link</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
     <main>
@@ -36,25 +89,25 @@
             <h2>Login</h2>
             <form id="loginForm">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username"><br>
+                <input type="text" id="username" name="username">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password"><br>
-                <input type="submit" value="Submit">
-                <p id="errorMessage" style="color: red;"></p> <!-- Place for error message -->
+                <input type="password" id="password" name="password">
+                <input type="submit" value="Submit" class="btn">
+                <p id="errorMessage"></p>
             </form>
         </section>
         <section>
             <h2>Leave a Comment</h2>
             <form id="commentForm">
-                <label for="comment">Comment:</label><br>
-                <textarea id="comment" class="upperCase"></textarea><br> <!-- Always uppercase -->
-                <input type="button" id="submitComment" value="Submit">
-                <input type="button" id="clearComment" value="Clear">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" class="upperCase"></textarea>
+                <input type="button" id="submitComment" value="Submit" class="btn">
+                <input type="button" id="clearComment" value="Clear" class="btn">
             </form>
         </section>
         <section>
-            <button class="btn">Click Me</button> <!-- Button with no animation -->
-            <img src="nonexistent.jpg" alt="Broken Image"> <!-- Broken image -->
+            <button class="btn">Click Me</button>
+            <img src="nonexistent.jpg" alt="Broken Image">
         </section>
     </main>
     <footer>
@@ -64,32 +117,24 @@
     <script>
         // Login form handling
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the form from submitting
-
-            // Hardcoded correct password for the sake of the example
+            event.preventDefault();
             var correctPassword = 'password123'; 
-
-            // Get the password input by the user
             var enteredPassword = document.getElementById('password').value;
 
             if (enteredPassword !== correctPassword) {
-                // Display error message with misspellings and no punctuation
                 document.getElementById('errorMessage').innerText = 'Incorect passwrd pleas try agin';
             } else {
                 document.getElementById('errorMessage').innerText = '';
-                // Proceed with "successful" login
                 alert('Logged in successfully!');
             }
         });
 
         // Comment form handling
         document.getElementById('submitComment').addEventListener('click', function() {
-            // Clear the comment field
             document.getElementById('comment').value = '';
         });
 
         document.getElementById('clearComment').addEventListener('click', function() {
-            // Add the word "Errorr" to the comment field
             document.getElementById('comment').value += 'Errorr';
         });
     </script>
