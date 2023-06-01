@@ -6,55 +6,65 @@
     <title>Game Testing Demo Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #fff;
+            color: #333;
         }
 
         header {
-            background-color: #444;
-            padding: 20px;
+            background-image: url('banner1.jpg'); /* Update this to your image file name with the correct extension */
+            background-size: cover;
+            padding: 40px 20px;
             text-align: center;
+            color: #fff;
         }
 
-        h1, h2 {
-            color: #fdd835;
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        h2 {
+            color: #ff5c33;
+            margin-top: 20px;
         }
 
         nav {
-            margin: 20px 0;
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
         }
 
         nav a {
-            color: #fdd835;
+            color: #fff;
             text-decoration: none;
-            margin-right: 15px;
+            margin: 0 15px;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #ff5c33;
         }
 
         .btn {
             padding: 10px;
-            color: #222;
-            background-color: #fdd835;
+            color: #fff;
+            background-color: #ff5c33;
             border: none;
             transition: background-color 0.5s;
         }
 
         .btn:hover {
-            background-color: #c6a700;
+            background-color: #e05327;
         }
-        
+
         .upperCase {
             text-transform: uppercase;
         }
 
         main {
-            padding: 0 20px;
+            padding: 20px;
         }
 
         form {
@@ -78,12 +88,12 @@
 <body>
     <header>
         <h1>Game Testing Demo Site</h1>
-        <nav>
-            <a href="nonexistent.html">Broken Link</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
     </header>
+    <nav>
+        <a href="nonexistent.html">Broken Link</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
     <main>
         <section>
             <h2>Login</h2>
@@ -104,39 +114,37 @@
                 <input type="button" id="submitComment" value="Submit" class="btn">
                 <input type="button" id="clearComment" value="Clear" class="btn">
             </form>
-        </section>
-        <section>
-            <button class="btn">Click Me</button>
-            <img src="nonexistent.jpg" alt="Broken Image">
-        </section>
-    </main>
-    <footer>
-        <!-- Footer information goes here -->
-    </footer>
+        </section
+             <section>
+        <button class="btn">Click Me</button>
+        <img src="nonexistent.jpg" alt="Broken Image">
+    </section>
+</main>
+<footer>
+    <!-- Footer information goes here -->
+</footer>
 
-    <script>
-        // Login form handling
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var correctPassword = 'password123'; 
-            var enteredPassword = document.getElementById('password').value;
+<script>
+    // Login form handling
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var correctPassword = 'password123';
+        var enteredPassword = document.getElementById('password').value;
 
-            if (enteredPassword !== correctPassword) {
-                document.getElementById('errorMessage').innerText = 'Incorect passwrd pleas try agin';
-            } else {
-                document.getElementById('errorMessage').innerText = '';
-                alert('Logged in successfully!');
-            }
-        });
+        if (enteredPassword !== correctPassword) {
+            document.getElementById('errorMessage').innerText = 'Incorect passwrd pleas try agin';
+        } else {
+            document.getElementById('errorMessage').innerText = '';
+            alert('Logged in successfully!');
+        }
+    });
 
-        // Comment form handling
-        document.getElementById('submitComment').addEventListener('click', function() {
-            document.getElementById('comment').value = '';
-        });
+    // Comment form handling
+    document.getElementById('submitComment').addEventListener('click', function() {
+        document.getElementById('comment').value = '';
+    });
 
-        document.getElementById('clearComment').addEventListener('click', function() {
-            document.getElementById('comment').value += 'Errorr';
-        });
-    </script>
-</body>
-</html>
+    document.getElementById('clearComment').addEventListener('click', function() {
+        document.getElementById('comment').value += 'Errorr';
+    });
+</script>
