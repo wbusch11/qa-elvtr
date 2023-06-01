@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Testing Demo Site</title>
+    <style>
+        /* Add your CSS here */
+        .btn {
+            padding: 10px;
+            color: white;
+            background-color: blue;
+            border: none;
+            transition: background-color 0.5s;
+        }
+
+        .btn:hover {
+            background-color: lightblue;
+        }
+        
+        /* Styles for uppercase input */
+        .upperCase {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welocme to the Software Testing Demo Site</h1> <!-- Intentional misspelling -->
+        <nav>
+            <a href="nonexistent.html">Broken Link</a> <!-- Broken link -->
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br>
+                <input type="submit" value="Submit">
+                <p id="errorMessage" style="color: red;"></p> <!-- Place for error message -->
+            </form>
+        </section>
+        <section>
+            <h2>Leave a Comment</h2>
+            <form id="commentForm">
+                <label for="comment">Comment:</label><br>
+                <textarea id="comment" class="upperCase"></textarea><br> <!-- Always uppercase -->
+                <input type="button" id="submitComment" value="Submit">
+                <input type="button" id="clearComment" value="Clear">
+            </form>
+        </section>
+        <section>
+            <button class="btn">Click Me</button> <!-- Button with no animation -->
+            <img src="nonexistent.jpg" alt="Broken Image"> <!-- Broken image -->
+        </section>
+    </main>
+    <footer>
+        <!-- Footer information goes here -->
+    </footer>
+
+    <script>
+        // Login form handling
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Hardcoded correct password for the sake of the example
+            var correctPassword = 'password123'; 
+
+            // Get the password input by the user
+            var enteredPassword = document.getElementById('password').value;
+
+            if (enteredPassword !== correctPassword) {
+                // Display error message with misspellings and no punctuation
+                document.getElementById('errorMessage').innerText = 'Incorect passwrd pleas try agin';
+            } else {
+                document.getElementById('errorMessage').innerText = '';
+                // Proceed with "successful" login
+                alert('Logged in successfully!');
+            }
+        });
+
+        // Comment form handling
+        document.getElementById('submitComment').addEventListener('click', function() {
+            // Clear the comment field
+            document.getElementById('comment').value = '';
+        });
+
+        document.getElementById('clearComment').addEventListener('click', function() {
+            // Add the word "Errorr" to the comment field
+            document.getElementById('comment').value += 'Errorr';
+        });
+    </script>
+</body>
+</html>
